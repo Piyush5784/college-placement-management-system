@@ -202,7 +202,6 @@ function UpdatePlacementProfile() {
                       </div>
                       <div className="flex items-center">
                         {/* resume upload  */}
-                        {console.log(userData)}
                         <UploadResume fetchCurrentUserData={fetchCurrentUserData} /> {/* passing function to update userData */}
                         {(userData?.studentProfile?.resume !== "undefined") && (
                           <div className="py-2 px-2">

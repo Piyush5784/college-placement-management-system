@@ -15,7 +15,7 @@ const AppliedToJob = async (req, res) => {
     // retune if already applied
     if (user?.studentProfile?.appliedJobs?.some(job => job.jobId == req.params.jobId)) return res.json({ msg: "Already Applied!" });
 
-    if (!user?.studentProfile?.resume?.filename) return res.json({ msg: 'Please Upload Resume First, Under "Placements" > "Placement Profile"' });
+    if (!user?.studentProfile?.resume) return res.json({ msg: 'Please Upload Resume First, Under "Placements" > "Placement Profile"' });
 
     user?.studentProfile?.appliedJobs?.push({ jobId: req.params.jobId, status: "applied" });
     job?.applicants?.push({ studentId: user._id });
@@ -31,7 +31,6 @@ const AppliedToJob = async (req, res) => {
 
 const CheckAlreadyApplied = async (req, res) => {
   try {
-    // console.log(req.params);
     // if studentId is not defined return
     if (req.params.studentId === "undefined") return;
     if (req.params.jobId === "undefined") return;

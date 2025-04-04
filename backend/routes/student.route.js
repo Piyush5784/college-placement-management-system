@@ -40,13 +40,13 @@ router.post('/upload-offer-letter', upload.single('offerLetter'), UploadOfferLet
 router.post('/delete-offer-letter/:jobId/:studentId', authenticateToken, DeleteOfferLetter);
 
 // apply to job
-router.put('/job/:jobId/:studentId', authenticateToken, AppliedToJob);
+router.put('/job/:jobId/:studentId', AppliedToJob);
 
 // check applied or not to job
-router.get('/check-applied/:jobId/:studentId', authenticateToken, CheckAlreadyApplied);
+router.get('/check-applied/:jobId/:studentId', CheckAlreadyApplied);
 
 // update job status
-router.post('/update-status/:jobId/:studentId', authenticateToken, UpdateJobStatus);
+router.post('/update-status/:jobId/:studentId', UpdateJobStatus);
 
 // get all internship of a student
 router.get('/internship', authenticateToken, GetInternships);

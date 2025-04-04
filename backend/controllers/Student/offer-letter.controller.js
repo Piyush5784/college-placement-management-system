@@ -17,7 +17,6 @@ const UploadOfferLetter = async (req, res) => {
     // Upload offer letter to Cloudinary
     const cloudinaryResponse = await cloudinary.uploader.upload(req.file.path, {
       folder: "CPMS/Offer Letter",
-      resource_type: "raw",
     });
 
     // Update offer letter path in MongoDB

@@ -172,7 +172,7 @@ function ViewJobPost() {
     };
 
     fetchData();
-  }, [currentUser.id, data?.company, jobId]);
+  }, [currentUser, data?.company, jobId]);
 
 
 

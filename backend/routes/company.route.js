@@ -20,7 +20,7 @@ router.post('/update-company', authenticateToken, UpdateCompany);
 
 router.post('/delete-company', authenticateToken, DeleteCompany);
 
-router.get('/company-data', authenticateToken, CompanyDetail);
+router.get('/company-data', CompanyDetail);
 
 
 
