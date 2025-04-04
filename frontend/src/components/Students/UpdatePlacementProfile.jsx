@@ -185,16 +185,14 @@ function UpdatePlacementProfile() {
                             </span>
                           </div>
 
-                          {
-                            userData?.studentProfile?.uin && (
-                              <div>
-                                <span className="text-gray-700 font-bold">UIN: </span>
-                                <span className="text-gray-800">
-                                  {userData?.studentProfile?.uin}
-                                </span>
-                              </div>
-                            )
-                          }
+                          {userData?.studentProfile?.uin && (
+                            <div>
+                              <span className="text-gray-700 font-bold">UIN: </span>
+                              <span className="text-gray-800">
+                                {userData?.studentProfile?.uin}
+                              </span>
+                            </div>
+                          )}
                         </div>
 
                         {/* Profile Picture */}
@@ -202,10 +200,11 @@ function UpdatePlacementProfile() {
                           <Image src={userData?.profile} thumbnail />
                         </Col>
                       </div>
-                      <div className="grid grid-cols-2">
+                      <div className="flex items-center">
                         {/* resume upload  */}
+                        {console.log(userData)}
                         <UploadResume fetchCurrentUserData={fetchCurrentUserData} /> {/* passing function to update userData */}
-                        {(userData?.studentProfile?.resume?.filepath !== "undefined") && (
+                        {(userData?.studentProfile?.resume !== "undefined") && (
                           <div className="py-2 px-2">
                             <span className='bg-blue-500 py-1 pr-2 rounded cursor-pointer hover:bg-blue-700'>
                               <a href={userData?.studentProfile?.resume} target='_blanck' className='no-underline text-white'>
