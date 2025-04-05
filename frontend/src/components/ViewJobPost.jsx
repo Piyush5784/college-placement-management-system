@@ -6,7 +6,7 @@ import Table from 'react-bootstrap/Table';
 import Toast from './Toast';
 import Button from 'react-bootstrap/Button';
 import ModalBox from './Modal';
-import { BASE_URL } from '../config/config';
+import { BASE_URL } from '../config/backend_url';
 
 
 function ViewJobPost() {

@@ -6,7 +6,7 @@ import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
 import Toast from '../Toast';
 import ModalBox from '../Modal';
-import { BASE_URL } from '../../config/config';
+import { BASE_URL } from '../../config/backend_url';
 
 function AddInternship() {
   document.title = 'CPMS | Add Internships';

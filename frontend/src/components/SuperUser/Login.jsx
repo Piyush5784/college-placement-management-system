@@ -5,7 +5,7 @@ import Logo from '../../assets/CPMS.png';
 import isAuthenticated from '../../utility/auth.utility';
 import Toast from '../../components/Toast';
 import { Button } from 'react-bootstrap';
-import { BASE_URL } from '../../config/config';
+import { BASE_URL } from '../../config/backend_url';
 
 function LoginSuperUser() {
   document.title = 'CPMS | Admin Login';

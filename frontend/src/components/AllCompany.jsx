@@ -7,7 +7,7 @@ import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Tooltip from 'react-bootstrap/Tooltip';
 import ModalBox from './Modal';
 import Toast from './Toast';
-import { BASE_URL } from '../config/config';
+import { BASE_URL } from '../config/backend_url';
 import TablePlaceholder from './TablePlaceholder';
 
 function AllCompany() {

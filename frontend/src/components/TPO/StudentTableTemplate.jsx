@@ -3,7 +3,7 @@ import Accordion from 'react-bootstrap/Accordion';
 import Table from 'react-bootstrap/Table';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import { BASE_URL } from '../../config/config';
+import { BASE_URL } from '../../config/backend_url';
 
 const StudentTable = ({ branchName, studentData }) => {
 

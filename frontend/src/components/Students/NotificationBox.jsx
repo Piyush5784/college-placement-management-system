@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Badge from 'react-bootstrap/Badge';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import { BASE_URL } from '../../config/config';
+import { BASE_URL } from '../../config/backend_url';
 
 function NotificationBox() {
   const [loading, setLoading] = useState(true);

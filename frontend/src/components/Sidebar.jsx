@@ -5,7 +5,7 @@ import { IoIosArrowDropdownCircle } from 'react-icons/io';
 import axios from 'axios';
 import Logo from '../assets/CPMS.png';
 import SubMenu from './Submenu';
-import { BASE_URL } from '../config/config';
+import { BASE_URL } from '../config/backend_url';
 
 const Sidebar = ({ isSidebarVisible }) => {
   const [sidebar, setSidebar] = useState(isSidebarVisible);

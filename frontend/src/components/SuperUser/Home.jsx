@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Badge from 'react-bootstrap/Badge';
-import { BASE_URL } from '../../config/config';
+import { BASE_URL } from '../../config/backend_url';
 
 function Home() {
   document.title = 'CPMS | Admin Dashboard';

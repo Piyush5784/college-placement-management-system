@@ -3,7 +3,7 @@ import axios from 'axios';
 import Toast from '../Toast';
 import ModalBox from '../Modal';
 import AddUserTable from '../AddUserTable';
-import { BASE_URL } from '../../config/config';
+import { BASE_URL } from '../../config/backend_url';
 
 function AddStudent() {
 

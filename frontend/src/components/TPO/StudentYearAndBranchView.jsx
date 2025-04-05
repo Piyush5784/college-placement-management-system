@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Accordion from 'react-bootstrap/Accordion';
 import axios from 'axios';
 import StudentTable from './StudentTableTemplate';
-import { BASE_URL } from '../../config/config';
+import { BASE_URL } from '../../config/backend_url';
 import AccordionPlaceholder from '../AccordionPlaceholder';
 
 function StudentYearAndBranchView() {
