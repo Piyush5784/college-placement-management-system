@@ -3,36 +3,37 @@ import { useNavigate } from 'react-router-dom';
 
 function LandFooter() {
   const navigate = useNavigate();
+
+  const loginLinks = [
+    { label: 'Login as TPO', path: '/tpo/login' },
+    { label: 'Login as Management', path: '/management/login' },
+    { label: 'Login as Super Admin', path: '/admin' },
+  ];
+
   return (
-    <>
-      <div className="container">
-        <footer className="py-3 my-4">
-          <ul className="nav justify-content-center border-bottom pb-3 mb-3">
-            <li className="nav-item"><a href="#home" className="nav-link px-2 text-body-secondary">Home</a></li>
-            <li className="nav-item"><a href="#about" className="nav-link px-2 text-body-secondary">About</a></li>
-            <li className="nav-item"><a href="" className="nav-link px-2 text-body-secondary">Contact</a></li>
-            <li className="nav-item"><a href="" className="nav-link px-2 text-body-secondary">FAQs</a></li>
-          </ul>
-          <ul className="nav justify-content-center border-bottom pb-3 mb-3">
-            <span className='text-gray-300 text-3xl'>|</span>
-            <li className="nav-item">
-              <span className="nav-link px-2 text-body-secondary cursor-pointer" onClick={()=>navigate('tpo/login')}>
-                Login as TPO Admin
-              </span>
-            </li>
-            <span className='text-gray-300 text-3xl'>|</span>
-            <li className="nav-item">
-              <span className="nav-link px-2 text-body-secondary cursor-pointer" onClick={()=>navigate('management/login')}>
-                Login as Management Admin
-              </span>
-            </li>
-            <span className='text-gray-300 text-3xl'>|</span>
-          </ul>
-          <p className="text-center text-body-secondary">© 2024 College Placement Management System</p>
-        </footer>
+    <footer className="bg-gradient-to-br from-white via-slate-100 to-gray-100 text-gray-800 py-10 mt-16 border-t border-gray-300">
+      <div className="max-w-7xl mx-auto px-6">
+        {/* Admin Login Buttons */}
+        <div className="flex flex-wrap justify-center items-center max-md:gap-3 md:gap-6 mb-8">
+          {loginLinks.map((link, idx) => (
+            <button
+              key={idx}
+              onClick={() => navigate(link.path)}
+              className="bg-green-600 hover:bg-green-500 px-5 py-2 rounded-md text-white text-sm font-medium shadow-md transition-all duration-300"
+            >
+              {link.label}
+            </button>
+          ))}
+        </div>
+
+        {/* Footer Text */}
+        <div className="text-center text-sm text-gray-600">
+          <p>© 2024 <span className="text-green-600 font-semibold">College Placement Management System</span>. All rights reserved.</p>
+          <p className="mt-1 text-xs text-gray-500">Developed by Final Year Students of Rizvi College of Engineering</p>
+        </div>
       </div>
-    </>
-  )
+    </footer>
+  );
 }
 
-export default LandFooter
+export default LandFooter;

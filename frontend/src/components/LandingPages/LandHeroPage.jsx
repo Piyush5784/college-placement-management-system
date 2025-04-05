@@ -1,32 +1,74 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import HeroImg from '../../assets/heroImg.jpg';
+import { useNavigate } from 'react-router-dom';
 
 function LandingHeroPage() {
-  const style = {
-    container: {
-      backgroundImage: `url(${HeroImg})`,
-      backgroundSize: "cover",
-      backgroundRepeat: "no-repeat",
-      height: "85vh",
+  const navigate = useNavigate();
+  const [email, setEmail] = useState('');
+
+  const handleCreateAccount = () => {
+    if (email.trim()) {
+      navigate('/student/signup', {
+        state: { prefillEmail: email }
+      });
+    } else {
+      navigate('/student/signup');
     }
   }
 
+  const handleScrollAbout = () => document.getElementById('about').scrollIntoView();
 
   return (
-    <>
-      <div id='home' className='flex flex-col justify-center items-center gap-8' style={style.container}>
-        <h3 className='text-5xl bg-yellow-200 p-2 rounded-full max-md:text-4xl max-sm:text-2xl'>
-          RCOE PLACEMENT PORTAL
-        </h3>
-        <div className='flex justify-center items-center'>
-          <div className="flex justify-center items-center gap-4 max-md:flex-col">
-            <input type="email" className="form-control !w-96 max-sm:!w-52" id="email" placeholder="Enter Your Email Address..." />
-            <button className='bg-green-400 border border-black px-3 py-1 text-lg rounded-lg text-nowrap shadow-lg shadow-green-400/50 hover:bg-green-600 text-white max-md:text-base'>Create Account Now</button>
-          </div>
+    <section
+      id="home"
+      className="relative h-[90vh] w-full flex items-center justify-center bg-cover bg-center bg-no-repeat"
+      style={{ backgroundImage: `url(${HeroImg})` }}
+    >
+      {/* Dark glass overlay */}
+      <div className="absolute inset-0 bg-black/40 bg-opacity-20 backdrop-blur-sm" />
+
+      {/* Content */}
+      <div className="relative z-20 max-w-5xl text-center">
+        <h1 className="text-white text-5xl sm:text-6xl md:text-7xl font-extrabold leading-tight drop-shadow-md">
+          Empower Your Career with <br />
+          <span className="bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 text-transparent bg-clip-text">
+            CPMS Portal
+          </span>
+        </h1>
+
+        <p className="mt-6 text-gray-300 text-lg sm:text-xl font-light">
+          Discover opportunities, track progress, and connect with your tpo — all in one place.
+        </p>
+
+        <div className="mt-10 flex flex-col sm:flex-row justify-center items-center gap-4">
+          <input
+            type="email"
+            className="px-5 py-3 w-80 sm:w-96 rounded-xl shadow-md focus:outline-none focus:ring-4 focus:ring-green-400 text-black transition duration-300"
+            placeholder="Enter your email..."
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <button
+            type="button"
+            className="bg-green-500 hover:bg-green-600 transition duration-300 px-6 py-3 rounded-xl text-white font-semibold shadow-lg"
+            onClick={handleCreateAccount}
+          >
+            Create Account
+          </button>
+        </div>
+
+        {/* Call-to-action */}
+        <div className="mt-8">
+          <p
+            className="inline-block cursor-pointer mt-4 text-sm text-white opacity-70 hover:opacity-100 transition duration-300 underline underline-offset-4"
+            onClick={handleScrollAbout}
+          >
+            Learn more about CPMS
+          </p>
         </div>
       </div>
-    </>
-  )
+    </section>
+  );
 }
 
-export default LandingHeroPage
+export default LandingHeroPage;

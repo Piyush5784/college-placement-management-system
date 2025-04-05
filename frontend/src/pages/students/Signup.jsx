@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Logo from "../../assets/CPMS.png";
 import Toast from '../../components/Toast';
@@ -9,6 +9,9 @@ import { BASE_URL } from '../../config/config';
 function Signup() {
   document.title = 'CPMS | Student Sign Up';
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const prefillEmail = location?.state?.prefillEmail || '';
 
   // if login user visit redirect to home page
   useEffect(() => {
@@ -26,7 +29,7 @@ function Signup() {
   // useState for from data 
   const [formData, setFormData] = useState({
     first_name: '',
-    email: '',
+    email: prefillEmail,
     number: '',
     password: '',
   });

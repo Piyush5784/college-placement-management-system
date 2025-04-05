@@ -1,40 +1,67 @@
 import React from 'react';
-import About1 from '../../assets/aboutImg1.jpg';
-import About2 from '../../assets/aboutImg2.jpg';
-import About3 from '../../assets/aboutImg3.jpg';
+import Student from '../../assets/student.jpg';
+import TPO from '../../assets/tpo.jpg';
+import Management from '../../assets/management.jpg';
+import Admin from '../../assets/admin.jpg';
 
 function LandAbout() {
-  return (
-    <>
-      <div id='about' className="bg-gradient-to-r from-slate-100 via-pink-100 to-orange-100">
-        <h1 className='ml-12 px-3 pt-3 text-4xl'>About Us</h1>
-        <div className="min-h-96 my-3 flex flex-wrap justify-around items-center gap-8">
-          <div className='w-10/12 md:w-1/3 lg:w-1/4 h-5/6 bg-opacity-10 shadow-lg shadow-slate-200 bg-red-500 border border-black rounded-lg text-center'>
-            <h3 className='py-1'>Get Placement</h3>
-            <div className="flex justify-center flex-col items-center py-1">
-              <img src={`${About1}`} alt="Image" className='w-56 md:w-64 border-2 border-black rounded-xl' />
-              <span className='mx-10 max-md:mx-0'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa, omnis!</span>
-            </div>
-          </div>
-          <div className='w-10/12 lg:w-1/4 md:w-1/3 h-5/6 bg-opacity-10 shadow-lg shadow-slate-200 bg-red-500 border border-black rounded-lg text-center'>
-            <h3 className='py-1'>Get Placement</h3>
-            <div className="flex justify-center flex-col items-center py-1">
-              <img src={`${About2}`} alt="Image" className='w-56 md:w-64 border-2 border-black rounded-xl' />
-              <span className='mx-10 max-md:mx-0'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa, omnis!</span>
-            </div>
-          </div>
-          <div className='w-10/12 lg:w-1/4 md:w-1/3 h-5/6 bg-opacity-10 shadow-lg shadow-slate-200 bg-red-500 border border-black rounded-lg text-center'>
-            <h3 className='py-1'>Get Placement</h3>
-            <div className="flex justify-center flex-col items-center py-1">
-              <img src={`${About3}`} alt="Image" className='w-56 md:w-64 border-2 border-black rounded-xl' />
-              <span className='mx-10 max-md:mx-0'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa, omnis!</span>
-            </div>
-          </div>
-        </div>
+  const roles = [
+    {
+      title: "Student",
+      image: Student,
+      description:
+        "Students can register, explore job opportunities, apply for jobs, and track application status with a personalized dashboard.",
+    },
+    {
+      title: "TPO (Training & Placement Officer)",
+      image: TPO,
+      description:
+        "TPOs manage company data, job postings, application reviews, and generate insightful reports for placement tracking.",
+    },
+    {
+      title: "Management",
+      image: Management,
+      description:
+        "Management can monitor overall placement activities, review analytics, and control system access and quality assurance.",
+    },
+    {
+      title: "Super User (Admin)",
+      image: Admin,
+      description:
+        "Admins handle all roles with super privileges—managing users, system settings, and ensuring smooth operations across modules.",
+    },
+  ];
 
+  return (
+    <div
+      id="about"
+      className="bg-gradient-to-tr from-pink-100 via-purple-100 to-pink-100 py-10 scroll-mt-24"
+    >
+      <div className="text-center mb-12">
+        <h2 className="text-4xl md:text-5xl font-bold mb-3 playfair">About CPMS</h2>
+        <p className="text-md md:text-lg max-w-3xl mx-auto text-gray-700 px-3">
+          Developed by final year students of Rizvi College of Engineering, CPMS (College Placement Management System) is a powerful web-based platform to streamline and manage campus placements efficiently.
+        </p>
       </div>
-    </>
-  )
+
+      <div className="flex flex-wrap justify-center items-stretch gap-10">
+        {roles.map((role, idx) => (
+          <div
+            key={idx}
+            className="bg-white border border-gray-200 shadow-lg rounded-xl w-80 max-md:py-3 max-md:px-2 md:p-5 flex flex-col items-center transform hover:scale-105 transition duration-300"
+          >
+            <img
+              src={role.image}
+              alt={role.title}
+              className="w-48 h-48 object-cover rounded-full border-4 border-green-300 shadow-md"
+            />
+            <h3 className="text-xl md:text-2xl font-semibold mt-4 mb-2 text-green-700 text-center">{role.title}</h3>
+            <p className="text-gray-600 text-sm text-center">{role.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 }
 
-export default LandAbout
+export default LandAbout;
