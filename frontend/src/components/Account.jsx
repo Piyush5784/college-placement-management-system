@@ -16,25 +16,22 @@ function Account() {
   const [loading, setLoading] = useState(true);
   // console.log(data)
 
-  useEffect(() => {
-    const fetchUserData = async () => {
-      try {
-        const token = localStorage.getItem('token');
-        const response = await axios.get(`${BASE_URL}/user/detail`, {
-          headers: {
-            'Authorization': `Bearer ${token}`,
-          }
-        });
-        // console.log(response.data)
-        setData(response.data);
-        setLoading(false);
-      } catch (error) {
-        console.log("Account.jsx => ", error);
-        setLoading(false);
-      }
+  const fetchUserData = async () => {
+    try {
+      const token = localStorage.getItem('token');
+      const response = await axios.get(`${BASE_URL}/user/detail`, {
+        headers: {
+          'Authorization': `Bearer ${token}`,
+        }
+      });
+      // console.log(response.data)
+      setData(response.data);
+      setLoading(false);
+    } catch (error) {
+      console.log("Account.jsx => ", error);
+      setLoading(false);
     }
-    fetchUserData();
-  }, []);
+  }
 
   const handleBasicDetailChange = (e) => setData({ ...data, [e.target.name]: e.target.value });
 
@@ -59,6 +56,8 @@ function Account() {
 
       setShowToast(true);
       console.log("handleBasicDetailSubmit => ", error);
+    } finally {
+      fetchUserData();
     }
   }
 
@@ -81,11 +80,14 @@ function Account() {
         setToastMessage(response.data.msg);
         setShowToast(true);
         // updating data so dont require refresh
-        setData({ ...data, profile: response.data.file });
+        // setData({ ...data, profile: response.data.file });
       } catch (error) {
         setToastMessage(error.message);
         setShowToast(true);
         console.error('Error uploading photo:', error);
+      } finally {
+        console.log('runnned');
+        fetchUserData();
       }
     }
   }
@@ -139,9 +141,10 @@ function Account() {
     } catch (error) {
       console.log("Account.jsx updatepass =>", error);
       setPassData({ ...passData, error: error.message });
+    } finally {
+      fetchUserData();
     }
   }
-
 
   // for formating date of birth
   const formatDate = (isoString) => {
@@ -150,6 +153,9 @@ function Account() {
     return date.toISOString().split('T')[0]; // Returns YYYY-MM-DD
   };
 
+  useEffect(() => {
+    fetchUserData();
+  }, []);
 
   return (
     <>
