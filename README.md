@@ -10,19 +10,21 @@
 - [Contributors](#contributors)
 
 ## Introduction
-The **College Placement Management System** is a web application designed to streamline the placement process in educational institutions. This system provides distinct roles for students, TPO (Training and Placement Officer) admin, management admin, and super admin, ensuring a smooth and efficient workflow.
+The **College Placement Management System** is a web application designed to streamline and digitize the placement process in colleges and universities. Developed by final year students of **Rizvi College of Engineering**, the system features a multi-role platform catering to students, TPO (Training and Placement Officer), management, and super admin. It aims to minimize manual efforts, improve transparency, and provide real-time tracking of the placement cycle.
 
 ## Features
-- **Student Portal**: Students can view available job opportunities, apply for placements, and track their application status.
-- **TPO Admin Portal**: TPO admins can manage job postings, schedule interviews, and track student progress.
-- **Management Admin Portal**: Management can oversee the entire placement process, view reports, and analyze data.
-- **Super Admin Portal**: The super admin can manage system settings, user accounts, and oversee the management of TPO and management users.
+- **Student Portal**: Register and login, update profile, upload resume, view available job opportunities, apply for jobs, and track application status.
+- **TPO Admin Portal**: Post and manage job listings, approve/reject student applications, schedule interviews, upload offer letters.
+- **Management Admin Portal**: Access analytics, monitor placement stats, and view comprehensive reports.
+- **Super Admin Portal**: Full control of the system including onboarding TPOs and management users, managing system configurations.
+- **Cloudinary Integration**: Handles secure storage of profile pictures, resumes, and offer letters.
 
 ## Tech Stack
 - **Frontend**: Vite + React.js, Tailwind CSS, Bootstrap
 - **Backend**: Node.js, Express.js
 - **Database**: MongoDB
 - **Authentication**: JSON Web Tokens (JWT)
+- **File Storage**: Cloudinary
 - **Styling**: Tailwind CSS, Bootstrap
 
 ## Project Structure
@@ -30,12 +32,13 @@ The **College Placement Management System** is a web application designed to str
 ├── frontend
 │   ├── public
 │   ├── src
-|   |   ├── api
-|   |   ├── assets
+│   │   ├── api
+│   │   ├── assets
 │   │   ├── components
-|   |   |   ├──LandingPages
-|   |   |   └──students
+│   │   │   ├── LandingPages
+│   │   │   └── students
 │   │   ├── config
+│   │   │   └── backend_url.js      # Contains: export const BASE_URL = 'https://cpms-api.vercel.app';
 │   │   ├── context
 │   │   ├── hooks
 │   │   ├── pages
@@ -56,11 +59,6 @@ The **College Placement Management System** is a web application designed to str
 │   ├── controllers
 │   ├── middleware
 │   ├── models
-│   ├── public
-│   │   └──  offerLetter
-│   │   └──  resumes
-│   │   └──  profileImgs
-│   │         └── default
 │   ├── routes
 │   ├── .env (NOTE: YOU NEED TO CREATE THIS FILE)
 │   ├── .gitignore
@@ -71,16 +69,17 @@ The **College Placement Management System** is a web application designed to str
 ```
 
 ## User Roles
-- **Students**: Can view and apply for job opportunities, update profiles, and track their application status.
-- **TPO Admin**: Manages job postings, student applications, and interviews.
-- **Management Admin**: Oversees the placement process, views reports, and analyzes placement data.
-- **Super Admin**: Manages the overall system, creates new admin users (TPO and Management), and manages system-level settings.
+- **Students**: View and apply for jobs, update profile, track status, and upload resumes.
+- **TPO Admin**: Post jobs, manage applications, upload offer letters, and schedule interviews.
+- **Management Admin**: Access dashboards and reports for data-driven decision making.
+- **Super Admin**: Manage system settings, and create/manage TPO and Management users.
 
 ## Installation
 
 ### Prerequisites
 - Node.js and npm installed
 - MongoDB installed and running
+- Cloudinary account for file uploads
 
 ### Clone the Repository
 ```bash
@@ -99,8 +98,12 @@ cd college-placement-management-system
    ```
 3. Create a `.env` file for environment variables:
    ```env
+   PORT=4518
    MONGO_URI=your_mongodb_connection_string
    JWT_SECRET=your_jwt_secret
+   CLOUDINARY_CLOUD_NAME=your_cloudinary_cloud_name
+   CLOUDINARY_API_KEY=your_cloudinary_api_key
+   CLOUDINARY_API_SECRET=your_cloudinary_api_secret
    ```
 4. Start the backend server:
    ```bash
@@ -116,13 +119,19 @@ cd college-placement-management-system
    ```bash
    npm install
    ```
-3. Start the frontend development server:
+3. Change backend URL for local testing:
+   Go to `src/config/backend_url.js` and update:
+   ```js
+   export const BASE_URL = 'http://localhost:4518';
+   ```
+4. Start the frontend development server:
    ```bash
    npm run dev
    ```
-   
+
 ## Contributors
 - **Member 1**: [Moin MN](https://www.linkedin.com/in/moinnaik/)
 - **Member 2**: Rafat Muskan Shaikh
 - **Member 3**: Saquib Patel
 - **Member 4**: Neeraj Kumar
+
