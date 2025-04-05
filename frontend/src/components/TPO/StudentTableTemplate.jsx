@@ -63,8 +63,7 @@ const StudentTable = ({ branchName, studentData }) => {
                     <tr key={index}>
                       <td>{student?.studentProfile?.rollNumber}</td>
                       <td>
-                        {
-                          (currentUser.role === 'tpo_admin' || currentUser.role === 'management_admin') &&
+                        {(currentUser.role === 'tpo_admin' || currentUser.role === 'management_admin') &&
                           <Link to={`/${currentUser.role === 'tpo_admin' ? 'tpo' : 'management'}/user/${student?._id}`} className='no-underline text-blue-500 hover:text-blue-700'>
                             {student?.first_name + " " + student?.middle_name + " " + student?.last_name}
                           </Link>
@@ -84,7 +83,7 @@ const StudentTable = ({ branchName, studentData }) => {
                       <td>{student?.number}</td>
                       <td>
                         <a
-                          href={BASE_URL + student?.studentProfile?.resume?.filepath}
+                          href={student?.studentProfile?.resume}
                           target="_blank"
                           rel="noopener noreferrer"
                           className='no-underline text-blue-500 hover:text-blue-700'
