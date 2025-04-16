@@ -14,7 +14,7 @@ const jobSchema = new mongoose.Schema({
   // applicants details
   applicants: [
     {
-      studentId: { type: Schema.Types.ObjectId, ref: 'Users' },
+      studentId: { type: Schema.Types.ObjectId, ref: 'Users', unique: true },
       currentRound: {
         type: String,
         enum: ['Aptitude Test', 'Technical Interview', 'HR Interview', 'Group Discussion']
