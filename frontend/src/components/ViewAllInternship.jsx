@@ -161,7 +161,13 @@ function AddInternship() {
               // fake table loading animation 
               <TablePlaceholder />
             ) : (
-              <Table striped bordered hover className='bg-white my-6 rounded-lg shadow w-full text-base max-lg:text-sm max-md:my-3'>
+              <Table
+                striped
+                bordered
+                hover
+                responsive="sm"
+                className='bg-white my-6 rounded-lg shadow w-full text-base max-lg:text-sm max-md:my-3'
+              >
                 <thead>
                   <tr>
                     <th style={{ width: '6%' }}>Sr. No.</th>

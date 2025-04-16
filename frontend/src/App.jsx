@@ -101,7 +101,7 @@ function Layout({ header }) {
         <Navbar isSidebarVisible={isSidebarVisible} toggleSidebar={toggleSidebar} />
         <div className="flex flex-grow">
           <Sidebar isSidebarVisible={isSidebarVisible} />
-          <div className={`content flex-grow p-4 transition-all duration-300 ${isSidebarVisible ? 'md:ml-64' : 'ml-0'}`}>
+          <div className={`content flex-grow p-4 transition-all duration-300 ${isSidebarVisible ? 'md:ml-64' : 'ml-0'} overflow-hidden`}>
             <BreadcrumbExp header={header} />
             <Outlet />
           </div>

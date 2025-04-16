@@ -73,76 +73,80 @@ function MyApplied() {
         loading ? (
           <TablePlaceholder />
         ) : (
-          <div className="overflow-auto">
-            <Table striped bordered hover className='bg-white my-6 rounded-lg shadow w-full text-base max-sm:text-sm'>
-              <thead>
-                <tr>
-                  <th style={{ width: '6%' }}>Sr. No.</th>
-                  <th style={{ width: '16%' }}><b>Company Name</b></th>
-                  <th style={{ width: '16%' }}>Job Title</th>
-                  <th style={{ width: '10%' }}>Annual CTC</th>
-                  <th style={{ width: '10%' }}>Applied On</th>
-                  <th style={{ width: '10%' }}>Last date of Application</th>
-                  <th style={{ width: '10%' }}>Status</th>
-                  <th style={{ width: '12%' }}>No. of Students Applied</th>
-                  <th style={{ width: '10%' }}>Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                {jobs?.length > 0 ? (
-                  jobs?.map((job, index) => (
-                    <tr key={index}>
-                      <td>{index + 1}</td>
-                      <td>
-                        <b>
-                          {job?.companyName}
-                        </b>
-                      </td>
-                      <td>
-                        {job?.jobTitle}
-                      </td>
-                      <td>
-                        {job?.salary}
-                      </td>
-                      <td>
-                        {new Date(job?.appliedAt.split('T')).toLocaleDateString('en-IN')}
-                      </td>
-                      <td>
-                        {new Date(job?.applicationDeadline).toLocaleDateString('en-IN')}
-                      </td>
-                      <td>
-                        {job?.status.charAt(0).toUpperCase() + job?.status.slice(1)}
-                      </td>
-                      <td>
-                        {job?.numberOfApplicants}
-                      </td>
-                      <td>
-                        {/* for hover label effect  */}
-                        <div className="flex justify-around items-center">
-                          <div className="px-0.5">
-                            {/* view post  */}
-                            <OverlayTrigger
-                              placement="top"
-                              delay={{ show: 250, hide: 400 }}
-                              overlay={renderTooltipViewPost}
-                            >
-                              <Link className="text-black" to={`/student/job/${job.jobId}`}>
-                                <i className='fa-solid fa-circle-info text-2xl max-sm:text-lg cursor-pointer transition-colors duration-200 ease-in-out hover:text-blue-500' />
-                              </Link>
-                            </OverlayTrigger>
-                          </div>
+          <Table
+            striped
+            bordered
+            hover
+            responsive="sm"
+            className='bg-white my-6 rounded-lg shadow text-base max-sm:text-sm'
+          >
+            <thead>
+              <tr>
+                <th style={{ width: '6%' }}>Sr. No.</th>
+                <th style={{ width: '16%' }}><b>Company Name</b></th>
+                <th style={{ width: '16%' }}>Job Title</th>
+                <th style={{ width: '10%' }}>Annual CTC</th>
+                <th style={{ width: '10%' }}>Applied On</th>
+                <th style={{ width: '10%' }}>Last date of Application</th>
+                <th style={{ width: '10%' }}>Status</th>
+                <th style={{ width: '12%' }}>No. of Students Applied</th>
+                <th style={{ width: '10%' }}>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {jobs?.length > 0 ? (
+                jobs?.map((job, index) => (
+                  <tr key={index}>
+                    <td>{index + 1}</td>
+                    <td>
+                      <b>
+                        {job?.companyName}
+                      </b>
+                    </td>
+                    <td>
+                      {job?.jobTitle}
+                    </td>
+                    <td>
+                      {job?.salary}
+                    </td>
+                    <td>
+                      {new Date(job?.appliedAt.split('T')).toLocaleDateString('en-IN')}
+                    </td>
+                    <td>
+                      {new Date(job?.applicationDeadline).toLocaleDateString('en-IN')}
+                    </td>
+                    <td>
+                      {job?.status.charAt(0).toUpperCase() + job?.status.slice(1)}
+                    </td>
+                    <td>
+                      {job?.numberOfApplicants}
+                    </td>
+                    <td>
+                      {/* for hover label effect  */}
+                      <div className="flex justify-around items-center">
+                        <div className="px-0.5">
+                          {/* view post  */}
+                          <OverlayTrigger
+                            placement="top"
+                            delay={{ show: 250, hide: 400 }}
+                            overlay={renderTooltipViewPost}
+                          >
+                            <Link className="text-black" to={`/student/job/${job.jobId}`}>
+                              <i className='fa-solid fa-circle-info text-2xl max-sm:text-lg cursor-pointer transition-colors duration-200 ease-in-out hover:text-blue-500' />
+                            </Link>
+                          </OverlayTrigger>
                         </div>
-                      </td>
-                    </tr>
-                  ))
-                ) : (
-                  <tr>
-                    <td colSpan="9">No Jobs found</td>
+                      </div>
+                    </td>
                   </tr>
-                )}
-              </tbody>
-            </Table>
-          </div>
+                ))
+              ) : (
+                <tr>
+                  <td colSpan="9">No Jobs found</td>
+                </tr>
+              )}
+            </tbody>
+          </Table>
         )
       }
     </>

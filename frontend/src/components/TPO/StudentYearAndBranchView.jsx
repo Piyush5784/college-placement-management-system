@@ -89,7 +89,7 @@ function StudentYearAndBranchView() {
           <AccordionPlaceholder />
         ) : (
           <>
-            <div className="my-4 p-6">
+            <div className="my-4 max-md:p-2 md:p-6 overflow-auto">
               <div className="">
                 {/* parent accordion for year of student  */}
                 <Accordion defaultActiveKey={['1']} flush className='flex flex-col gap-4'>

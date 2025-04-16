@@ -118,7 +118,13 @@ function ViewlAllNotice() {
         ) : (
           <>
             <div className=''>
-              <Table striped bordered hover className='bg-white my-6 rounded-lg shadow w-full text-base max-sm:text-sm'>
+              <Table
+                striped
+                bordered
+                hover
+                responsive="sm"
+                className='bg-white my-6 rounded-lg shadow w-full text-base max-sm:text-sm'
+              >
                 <thead>
                   <tr>
                     <th style={{ width: '2%' }}>#</th>

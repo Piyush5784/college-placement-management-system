@@ -74,7 +74,13 @@ function AddUserTable({
               {/* <i className="fa-solid fa-spinner fa-spin text-3xl" /> */}
             </div>
           ) : (
-            <Table striped bordered hover className='bg-white my-6 rounded-lg shadow w-full text-base max-sm:text-sm'>
+            <Table
+              striped
+              bordered
+              hover
+              responsive="sm"
+              className='bg-white my-6 rounded-lg shadow w-full text-base max-sm:text-sm'
+            >
               <thead>
                 <tr>
                   <th style={{ width: '10%' }}>Sr. No.</th>
