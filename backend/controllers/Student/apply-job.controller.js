@@ -19,9 +19,9 @@ const AppliedToJob = async (req, res) => {
 
     user?.studentProfile?.appliedJobs?.push({ jobId: req.params.jobId, status: "applied" });
     job?.applicants?.push({ studentId: user._id });
-
     await user.save();
     await job.save();
+
     return res.status(201).json({ msg: "Applied Successfully!" });
   } catch (error) {
     console.log("apply-job.controller.js => ", error);

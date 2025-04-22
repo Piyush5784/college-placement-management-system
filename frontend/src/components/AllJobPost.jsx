@@ -162,13 +162,6 @@ function AllJobPost() {
                       <th>Last date of Application</th>
                       <th>No. of Students Applied</th>
                       <th>Action</th>
-                      {/* <th style={{ width: '5%' }}>Sr. No.</th>
-                    <th style={{ width: '18%' }}><b>Company Name</b></th>
-                    <th style={{ width: '18%' }}>Job Title</th>
-                    <th style={{ width: '10%' }}>Annual CTC</th>
-                    <th style={{ width: '15%' }}>Last date of Application</th>
-                    <th style={{ width: '15%' }}>No. of Students Applied</th>
-                    <th style={{ width: '15%' }}>Action</th> */}
                     </tr>
                   </thead>
                   <tbody>

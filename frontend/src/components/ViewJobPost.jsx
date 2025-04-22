@@ -129,7 +129,7 @@ function ViewJobPost() {
     } catch (error) {
       setShowModal(false);
       if (error?.response?.data?.msg) {
-        setToastMessage(response?.data?.msg);
+        setToastMessage(error?.response?.data?.msg);
         setShowToast(true);
       }
       console.log("error while fetching apply to job => ", error);
