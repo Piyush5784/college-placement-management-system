@@ -67,7 +67,7 @@ const UserSchema = new mongoose.Schema({
     appliedJobs: [
       {
         // Reference to job posting
-        jobId: { type: mongoose.Schema.Types.ObjectId, ref: 'Job', unique: true },
+        jobId: { type: mongoose.Schema.Types.ObjectId, ref: 'Job' },
         // Track application status
         status: { type: String, enum: ['applied', 'interview', 'hired', 'rejected'], default: 'applied' },
         package: { type: Number },

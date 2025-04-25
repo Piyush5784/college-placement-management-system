@@ -58,10 +58,6 @@ function AddUserTable({
     </Tooltip>
   );
 
-  const nameLink = () => {
-
-  }
-
 
   return (
     <>

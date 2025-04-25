@@ -15,9 +15,6 @@ function Footer({ isSidebarVisible }) {
               Moin MN
             </a>
           </span>
-          <span className="px-1 cursor-pointer font-bold text-blue-500 hover:text-blue-700">
-            & Team
-          </span>
         </div>
 
         <div className="flex flex-col sm:flex-row sm:items-center text-right mt-2 sm:mt-0">
