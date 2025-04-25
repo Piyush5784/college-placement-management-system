@@ -104,6 +104,8 @@ cd college-placement-management-system
    CLOUDINARY_CLOUD_NAME=your_cloudinary_cloud_name
    CLOUDINARY_API_KEY=your_cloudinary_api_key
    CLOUDINARY_API_SECRET=your_cloudinary_api_secret
+   SMTP_USER="your_email_id"
+   SMTP_PASS="your_app_password_to_be_generate_via_google_settings"
    ```
 4. Start the backend server:
    ```bash
